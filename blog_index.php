@@ -42,7 +42,7 @@ $all_post = $conn->query($sql);
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/dist/output.css">
     <link rel="stylesheet" href="style.css">
@@ -60,7 +60,7 @@ $all_post = $conn->query($sql);
 </head>
 
 <body class="bg-gray-50 leading-normal">
-    
+
     <header class="" id="Header">
         <div class="bg-[#001e3e]">
             <nav id="header" class="w-full z-30 top-0">
@@ -80,28 +80,28 @@ $all_post = $conn->query($sql);
                     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 lg:bg-transparent p-4 lg:p-0 z-20" id="nav-content">
                         <ul class="list-reset lg:flex justify-end flex-1 items-center text-white">
                             <li class="mr-3">
-                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white " href="index.html">Inicio</a>
+                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white" href="index.html">Inicio</a>
                             </li>
                             <li class="mr-1">
-                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white " href="/index.html#Servicios">Servicios</a>
+                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white" href="/index.html#Servicios">Servicios</a>
                             </li>
                             <li class="mr-1">
-                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white " href="/index.html#Nosotros">Nosotros</a>
+                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white" href="/index.html#Nosotros">Nosotros</a>
                             </li>
                             <li class="mr-1">
-                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white " href="/index.html#Equipo">Nuestro equipo</a>
+                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white" href="/index.html#Equipo">Nuestro equipo</a>
                             </li>
                             <li class="mr-1">
-                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white " href="/index.html#FAQ">FAQ</a>
+                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white" href="/index.html#FAQ">FAQ</a>
                             </li>
                             <li class="mr-1">
-                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white " href="/index.html#Testimonios">Testimonios</a>
+                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white" href="/index.html#Testimonios">Testimonios</a>
                             </li>
                             <li class="mr-1">
-                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white " href="/index.html#Blog">Blog</a>
+                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white" href="/index.html#Blog">Blog</a>
                             </li>
                             <li class="mr-1">
-                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white " href="/index.html#Contacto">Contacto</a>
+                                <a class="inline-block no-underline hover:text-amber-500 hover:text-underline py-2 px-4 lg:text-white" href="/index.html#Contacto">Contacto</a>
                             </li>
                             <li class="mr-3">
                                 <a class="inline-block no-underline bg-orange-400 hover:bg-orange-500 rounded hover:text-gray-50 hover:text-underline py-2 px-4 lg:text-white " href="/english.html">English</a>
@@ -116,7 +116,7 @@ $all_post = $conn->query($sql);
     </header>
 
     <main class="flex flex-col gap-4 py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        
+
         <?php while ($post = $all_post->fetch_assoc()) : ?>
 
             <section>
@@ -132,11 +132,11 @@ $all_post = $conn->query($sql);
                         </div>
                         <div class="md: w-1/2">
                             <h2 class="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                                <a href="#">                                
-                                    <?= $post["post_title"] ?>                                    
+                                <a href="#">
+                                    <?= $post["post_title"] ?>
                                 </a>
                             </h2>
-                            <figcaption class="mb-5 font-light text-gray-500">                                
+                            <figcaption class="mb-5 font-light text-gray-500">
                             </figcaption>
                             <div class="flex justify-start items-center">
                                 <a class="inline-flex items-center font-medium text-primary-600 hover:underline bg-orange-400 rounded p-2 text-white" onclick="send_post(<?= $post->id_post ?>)">
@@ -155,7 +155,7 @@ $all_post = $conn->query($sql);
         <?php endwhile; ?>
 
     </main>
-    
+
     <!-- the footer is the same thing in this file and on the other sites like the main index and testimonials -->
     <footer class="p-3 mt-8 bg-[#001E3E]">
         <div class="flex flex-col gap-5 pt-5 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-600 md:flex-row">
