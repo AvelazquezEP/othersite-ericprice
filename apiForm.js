@@ -77,11 +77,17 @@ const createLeadApi = (first_name, last_name, email, mobile_phone, location_name
                 window.location.href = url_thanks;
             }
             else {
-                if (location_name != "National") {
-                    fullUrl = `https://greencardla.my.site.com/s/onlinescheduler?processId=a1h5f000000nAJCAA2&locationType=${inPerson}&WhatId=a1n5f0000006fzTAAQ&WhereID=${locationCode}&sumoapp_WhoId=0055f000007NE9T&clientId=${leadID}`;
+
+                if (location_name == "National" || location_name == "Oxnard") {
+                    fullUrl = `https://greencardla.my.site.com/s/onlinescheduler?processId=a1h5f000000nAJZAA2&locationType=${byPhone}&WhatId=a1n5f0000006fzTAAQ&WhereID=${locationCode}&sumoapp_WhoId=0055f000007NE9T&clientId=${leadID}`;
                 } else {
-                    fullUrl = `https://greencardla.my.site.com/s/onlinescheduler?processId=a1h5f000000nAJZAA2&locationType=${byPhone}&WhatId=a1n5f0000006fzTAAQ&WhereID=a1b5f000000enBiAAI&sumoapp_WhoId=0055f000007NE9T&clientId=${leadID}`;
+                    fullUrl = `https://greencardla.my.site.com/s/onlinescheduler?processId=a1h5f000000nAJCAA2&locationType=${inPerson}&WhatId=a1n5f0000006fzTAAQ&WhereID=${locationCode}&sumoapp_WhoId=0055f000007NE9T&clientId=${leadID}`;
                 }
+                // if (location_name != "National") {
+                //     fullUrl = `https://greencardla.my.site.com/s/onlinescheduler?processId=a1h5f000000nAJZAA2&locationType=${inPerson}&WhatId=a1n5f0000006fzTAAQ&WhereID=${locationCode}&sumoapp_WhoId=0055f000007NE9T&clientId=${leadID}`;
+                // } else {
+                //     fullUrl = `https://greencardla.my.site.com/s/onlinescheduler?processId=a1h5f000000nAJCAA2&locationType=${byPhone}&WhatId=a1n5f0000006fzTAAQ&WhereID=a1b5f000000enBiAAI&sumoapp_WhoId=0055f000007NE9T&clientId=${leadID}`;
+                // }
 
                 window.location.href = fullUrl;
             }
@@ -93,7 +99,8 @@ const createLeadApi = (first_name, last_name, email, mobile_phone, location_name
 }
 
 const getLocation = (location) => {
-    // We need the new code for this Location but we replace the code and locations
+    // We use duplicate codes for Escondido and Riverside because only replace the lable on salesforce but use the same for this locations
+    // We can delete some codes after February 1st
     var code = "";
     let LACode = "a1b5f000000eT4OAAU";
     let OCCode = "a1b5f000000eT4PAAU";
@@ -101,9 +108,9 @@ const getLocation = (location) => {
     let SMCode = "a1b5f000000eT8gAAE";
     let CHCode = "a1b5f000000enBnAAI";
     let SBCode = "a1b5f000001signAAA";
-    let ESCode = ""; 
+    let ESCode = "a1b5f000000eT8gAAE";
     let OXCode = "a1bRg000000QIPVIA4"; // New Oxnard office
-    let RSCode = ""; // New Riverside office
+    let RSCode = "a1b5f000001signAAA"; // New Riverside office
 
     switch (location) {
         case "Los Angeles":
@@ -128,7 +135,8 @@ const getLocation = (location) => {
             code = ESCode;
             break;
         case "Oxnard":
-            code = OXCode;
+            // code = OXCode;
+            code = LACode;
             break;
         case "Riverside":
             code = RSCode;
@@ -160,7 +168,6 @@ const sendEmail = (first_name, last_name, email, mobile_phone, language_site, le
     });
 }
 
-// Validation
 const name_input_validation = (name_element) => {
     if (/^ *$/.test(name_element)) {
         document.getElementById('nameInput').innerHTML = 'Please write your name';

@@ -16,7 +16,7 @@ try {
 
     // we get only the token and not the complete json structure
     $newToken = $response->access_token;
-    $_SESSION["newKey"] = $response;
+    $_SESSION["newKey"] = $response; //This session might be dont use anymore
     var_dump($response);
 } catch (Exception $e) {
     echo "Error: " . $e;
@@ -48,8 +48,7 @@ function refreshAccessToken($typeRequest, $client_id, $secret_id, $refresh_token
     $new_token = strval($jsonArrayResponse->access_token);
 
     $date = date('Y-m-d H:i:s.uO');
-
-    // When get the token we need save this in the database
+    
     saveToken($new_token, $date);
 
     return $jsonArrayResponse;
